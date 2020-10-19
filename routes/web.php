@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-    // return view('welcome');
+//     return view('welcome');
 // });
 
 Route::get('/', function(){
     return view('index');
 });
 
+// Route::get('/cursos', function(){ return view('admin.cursos.cursos'); });
 
-
-
+Route::get('/cursos', [CursoController::class, 'index']);

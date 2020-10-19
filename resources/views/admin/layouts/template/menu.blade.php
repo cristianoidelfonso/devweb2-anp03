@@ -7,7 +7,7 @@
                 {{-- Utilizando rotas nomeadas --}}
                 {{-- <li><a href="{{route('cadastrar')}}">Cadastrar Curso</a></li> --}}
                 {{-- <li><a href="">Cadastrar Curso</a></li> --}}
-                <li><a href="">{{'Cursos'}}</a></li>
+                <li><a href="/cursos">{{'Cursos'}}</a></li>
                 <li><a href="">{{'Professores'}}</a></li>
                 <li><a href="">{{'Contato'}}</a></li>
                 <li><a href="">{{'Sobre'}}</a></li>
