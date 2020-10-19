@@ -21,6 +21,11 @@ Route::get('/', function(){
     return view('index');
 });
 
-// Route::get('/cursos', function(){ return view('admin.cursos.cursos'); });
+// Route::resource('/cursos', CursoController::class);
 
-Route::get('/cursos', [CursoController::class, 'index']);
+Route::resources([
+    'alunos' => AlunoController::class,
+    'professores' => ProfessorController::class,
+    'cursos' => CursoController::class,
+    'matriculas' => MatriculaController::class,
+]);
