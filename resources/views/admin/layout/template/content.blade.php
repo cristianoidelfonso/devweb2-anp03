@@ -1,4 +1,4 @@
-
+<div class="content">
     {{-- Conteúdo principal --}}
     <div class="container">
 
@@ -12,3 +12,4 @@
         @yield('conteudo-secundario')
 
     </div>
+</div>

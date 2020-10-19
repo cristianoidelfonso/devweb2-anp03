@@ -1,4 +1,4 @@
-@extends('admin.layouts.template.index')
+@extends('admin.layout.template.index')
 
 @section('content-main')
 
@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @forelse ($cursos as $curso)
+                @forelse ($cursos as $curso)
                     <tr>
                         <td>{{ $curso->id }}</td>
                         <td>{{ $curso->nome }}</td>
@@ -47,7 +47,7 @@
                     <tr>
                         <td>Nenhum curso encontrado.</td>
                     </tr>
-                @endforelse --}}
+                @endforelse
             </tbody>
         </table>
         </div>

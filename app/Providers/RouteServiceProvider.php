@@ -26,6 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+
     // protected $namespace = null;
 
     /**
@@ -33,6 +34,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+
+    // Alteração aqui
+    // Referencia: https://medium.com/@litvinjuan/how-to-fix-target-class-does-not-exist-in-laravel-8-f9e28b79f8b4
 
     protected $namespace = 'App\Http\Controllers'; // Linha adicionada
 

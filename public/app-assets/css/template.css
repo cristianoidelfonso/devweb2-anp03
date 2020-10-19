@@ -1,11 +1,11 @@
 body {
-  background: white;
+  background: #fff;
 }
 nav.navbar-material {
   background: #3949ab;
   border: none;
   box-shadow: none;
-  position: fixed;
+  position: absolute;
   top: 0;
 }
 .navbar-material .nav-wrapper {

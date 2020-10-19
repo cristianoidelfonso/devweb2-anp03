@@ -18,12 +18,21 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function(){
-    return view('index');
+    return view('admin.layout.template.index');
 });
+
+Route::get('/contato', function(){
+    return view('admin.layout.contato');
+})->name('contato');
+
+Route::get('/sobre', function(){
+    return view('admin.layout.sobre');
+})->name('sobre');
 
 // Route::resource('/cursos', CursoController::class);
 
 Route::resources([
+
     'alunos' => AlunoController::class,
     'professores' => ProfessorController::class,
     'cursos' => CursoController::class,
