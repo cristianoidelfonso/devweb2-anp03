@@ -1,0 +1,140 @@
+body {
+  background: white;
+}
+nav.navbar-material {
+  background: #3949ab;
+  border: none;
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+}
+.navbar-material .nav-wrapper {
+  padding: 0;
+}
+.navbar-material .nav-wrapper > ul > li > a {
+    color: white;
+}
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}
+.navbar-material .nav-wrapper .button-collapse i {
+  color: white;
+}
+nav .brand-logo strong {
+    font-weight: 900;
+    letter-spacing: .4rem;
+    margin-left: 1rem;
+}
+.btn-floating.btn-large i {
+    background-color: #3949ab;
+}
+.tableFixHead {
+    overflow-y: auto;
+    height: 80vh;
+}
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    background-color: gray;
+}
+footer{
+    position:absolute;
+    width: 100%;
+    bottom: 0;
+}
+.page-footer{
+    padding-top: 0px;
+    padding: 0;
+}
+.page-footer .footer-copyright {
+    margin: 0;
+    height: 20px;
+    min-height: 20px;
+    background-color: #3949ab;
+}
+
+
+@media (max-width:220px){
+    .navbar-material .nav-wrapper .brand-logo{
+        position: relative;
+        left:30%;
+        font-size: .8rem;
+    }
+    .navbar-material .nav-wrapper .brand-logo span {
+        display: none;
+    }
+    .navbar-material .nav-wrapper .sidenav-trigger {
+        margin: 0 8px;
+    }
+    h2, h4{
+        font-size: 2rem;
+    }
+    span.grey-text.text-lighten-4 {
+        display: none;
+    }
+}
+
+@media (min-width:221px) and (max-width: 320px) {
+    .navbar-material .nav-wrapper .brand-logo {
+        position: relative;
+        left: 30%;
+        font-size: 1rem;
+    }
+    .navbar-material .nav-wrapper .brand-logo span {
+        display: none;
+    }
+    h2, h4{
+        font-size: 2rem;
+    }
+    span.grey-text.text-lighten-4 {
+        display: none;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .navbar-material .nav-wrapper .brand-logo {
+        position: relative;
+        left: 38%;
+        font-size: 1.6rem;
+    }
+    .navbar-material .nav-wrapper .brand-logo span {
+        display: none;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    h4{
+        font-size: 2.5;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 600px) {
+    .navbar-material .nav-wrapper .brand-logo {
+        position: relative;
+        left: 40%;
+    }
+    .navbar-material .nav-wrapper .brand-logo span {
+        display: none;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 993px) {
+     .navbar-material .nav-wrapper .brand-logo {
+        position: relative;
+        left: 40%;
+    }
+    h2, h4{
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 993px) {
+    .navbar-material .nav-wrapper {
+        padding: 0 10px 0 50px;
+    }
+
+    .container {
+        width: 85%;
+    }
+}

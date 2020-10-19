@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
     // return view('welcome');
 // });
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('index');
 });
+
+
+
+
