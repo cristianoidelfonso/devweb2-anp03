@@ -34,14 +34,14 @@
                         <td class="center-align">
 
                             <a class="btn" href="{{route('alunos.edit', $aluno->id)}}">
-                                <span title="Editar"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
+                                <span title="Editar aluno"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
                             </a>
 
                             <form action="{{route('alunos.destroy', $aluno->id)}}" method="post" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn">
-                                    <span title="Excluir"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
+                                    <span title="Excluir aluno"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
                                 </button>
                             </form>
 
@@ -57,7 +57,7 @@
         </div>
 
         <div class="fixed-action-btn">
-            <a href="{{route('alunos.create')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar Novo Curso">
+            <a href="{{route('alunos.create')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar novo aluno">
                 <i class="large material-icons">add</i>
             </a>
         </div>

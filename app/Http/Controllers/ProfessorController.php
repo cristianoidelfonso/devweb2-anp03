@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ProfessorRequest;
 use App\Models\Professor;
 
 class ProfessorController extends Controller
@@ -39,11 +40,11 @@ class ProfessorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfessorRequest $request)
     {
         Professor::create($request->all());
 
-        $request->session()->flash('sucesso', 'Professor $request->nome incluído com sucesso!');
+        $request->session()->flash('sucesso', "Professor $request->nome_professor incluído com sucesso!");
 
         return redirect()->route('professores.index');
     }
@@ -81,13 +82,13 @@ class ProfessorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfessorRequest $request, $id)
     {
         $professor = Professor::find($id);
 
         $professor->update($request->all());
 
-        $request->session()->flash('sucesso', 'Professor $request->nome alterado com sucesso!');
+        $request->session()->flash('sucesso', "Professor $request->nome_professor alterado com sucesso!");
 
         return redirect()->route('professores.index');
     }
@@ -98,11 +99,11 @@ class ProfessorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Professor::destroy($id);
 
-        $request->session()->flash('sucesso', 'Professor excluído com sucesso!');
+        $request->session()->flash('sucesso', "Professor excluído com sucesso!");
 
         return redirect()->route('professores.index');
     }

@@ -28,14 +28,14 @@
                         <td class="center-align">
 
                             <a class="btn" href="{{route('professores.edit', $professor->id)}}">
-                                <span title="Editar"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
+                                <span title="Editar professor"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
                             </a>
 
                             <form action="{{route('professores.destroy', $professor->id)}}" method="post" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn">
-                                    <span title="Excluir"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
+                                    <span title="Excluir professor"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
                                 </button>
                             </form>
 
@@ -51,7 +51,7 @@
         </div>
 
         <div class="fixed-action-btn">
-            <a href="{{route('professores.create')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar Novo Curso">
+            <a href="{{route('professores.create')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar novo professor">
                 <i class="large material-icons">add</i>
             </a>
         </div>

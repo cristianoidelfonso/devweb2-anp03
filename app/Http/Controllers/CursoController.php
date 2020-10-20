@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\CursoRequest;
 use App\Models\Curso;
 
 class CursoController extends Controller
@@ -38,11 +39,11 @@ class CursoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CursoRequest $request)
     {
         Curso::create($request->all());
 
-        $request->session()->flash('sucesso', 'Curso $request->nome incluído com sucesso!');
+        $request->session()->flash('sucesso', "Curso $request->nome_curso incluído com sucesso!");
 
         return redirect()->route('cursos.index');
     }
@@ -80,13 +81,13 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CursoRequest $request, $id)
     {
         $curso = Curso::find($id);
 
         $curso->update($request->all());
 
-        $request->session()->flash('sucesso', 'Curso $request->nome alterado com sucesso!');
+        $request->session()->flash('sucesso', "Curso {$request->nome_curso} alterado com sucesso!");
 
         return redirect()->route('cursos.index');
 
@@ -102,7 +103,7 @@ class CursoController extends Controller
     {
         Curso::destroy($id);
 
-        $request->session()->flash('sucesso', 'Curso excluído com sucesso!');
+        $request->session()->flash('sucesso', "Curso excluído com sucesso!");
 
         return redirect()->route('cursos.index');
     }

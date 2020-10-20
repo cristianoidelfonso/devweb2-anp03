@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\AlunoRequest;
 use App\Models\Aluno;
 
 class AlunoController extends Controller
@@ -38,11 +39,11 @@ class AlunoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlunoRequest $request)
     {
         Aluno::create($request->all());
 
-        $request->session()->flash('sucesso', 'Aluno $request->nome incluído com sucesso!');
+        $request->session()->flash('sucesso', "Aluno $request->nome_aluno incluído com sucesso!");
 
         return redirect()->route('alunos.index');
     }
@@ -80,13 +81,13 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AlunoRequest $request, $id)
     {
         $aluno = Aluno::find($id);
 
         $aluno->update($request->all());
 
-        $request->session()->flash('sucesso', 'Aluno $request->nome alterado com sucesso!');
+        $request->session()->flash('sucesso', "Aluno $request->nome_aluno alterado com sucesso!");
 
         return redirect()->route('alunos.index');
     }
@@ -97,11 +98,11 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Aluno::destroy($id);
 
-        $request->session()->flash('sucesso', 'Aluno excluído com sucesso!');
+        $request->session()->flash('sucesso', "Aluno excluído com sucesso!");
 
         return redirect()->route('alunos.index');
     }

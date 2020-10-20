@@ -30,14 +30,14 @@
                         <td class="center-align">
 
                             <a class="btn" href="{{route('cursos.edit', $curso->id)}}">
-                                <span title="Editar"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
+                                <span title="Editar curso"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
                             </a>
 
                             <form action="{{route('cursos.destroy', $curso->id)}}" method="post" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn">
-                                    <span title="Excluir"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
+                                    <span title="Excluir curso"><i class="red-text text-darken-4 small material-icons">delete_sweep</i></span>
                                 </button>
                             </form>
 

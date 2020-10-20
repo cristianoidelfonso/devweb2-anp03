@@ -11,39 +11,38 @@
             @endisset
 
             <div class="input-field">
-                <input class="form-control" type="text" id="nome" name="nome" value="{{old('nome', $curso->nome ?? '')}}">
-                <label for="nome">Nome</label>
-                @error('nome')
+                <input class="form-control" type="text" id="nome_curso" name="nome_curso" value="{{old('nome_curso', $curso->nome_curso ?? '')}}">
+                <label for="nome_curso">Nome</label>
+                @error('nome_curso')
                     <span class="red-text"><small>{{$message}}</small></span>
                 @enderror
             </div>
             <div class="input-field">
-                <input class="form-control" type="number" id="carga_horaria" name="carga_horaria" >
+                <input class="form-control" type="number" id="carga_horaria" name="carga_horaria" value="{{old('carga_horaria', $curso->carga_horaria ?? '')}}" >
                 <label for="carga_horaria">Carga Horaria</label>
                  @error('carga_horaria')
                     <span class="red-text"><small>{{$message}}</small></span>
                 @enderror
             </div>
             <div class="input-field">
-                <input class="form-control" type="text" id="professor" name="professor" >
-                <label for="professor">Professor</label>
-                 @error('professor')
+                <input class="form-control" type="text" id="descricao" name="descricao" value="{{old('descricao', $curso->descricao ?? '')}}">
+                <label for="descricao">Descrição</label>
+                 @error('descricao')
                     <span class="red-text"><small>{{$message}}</small></span>
                 @enderror
             </div>
             <div class="input-field">
-                <input class="form-control" type="number" id="preco" name="preco" >
-                <label for="preco">Preço</label>
-                 @error('preco')
+                <input class="form-control" type="number" id="valor" name="valor" value="{{old('valor', $curso->valor ?? '')}}">
+                <label for="valor">Valor</label>
+                 @error('valor')
                     <span class="red-text"><small>{{$message}}</small></span>
                 @enderror
             </div>
             <div class="right-align">
                 <button class="btn waves-effect waves-light" type="submit">Salvar</button>
-                {{-- <a href="{{url()->previous()}}" class="btn-flat waves-effect"> --}}
-                    {{-- <i class="large material-icons">close</i> --}}
-                    {{-- Cancelar --}}
-                {{-- </a> --}}
+                {{-- <a href="" class="btn-flat waves-effect">
+                    <i class="large material-icons">Salvar</i>
+                </a> --}}
 
                 <a href="{{route('cursos.index')}}" class="btn-flat waves-effect">
                     {{-- <i class="large material-icons">close</i> --}}
