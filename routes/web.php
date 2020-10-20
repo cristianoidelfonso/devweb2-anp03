@@ -29,7 +29,7 @@ Route::get('/sobre', function(){
     return view('admin.layout.sobre');
 })->name('sobre');
 
-// Route::resource('/cursos', CursoController::class);
+// Route::resource('cursos', CursoController::class)->except(['show']);
 
 Route::resources([
 
@@ -37,4 +37,5 @@ Route::resources([
     'professores' => ProfessorController::class,
     'cursos' => CursoController::class,
     'matriculas' => MatriculaController::class,
+
 ]);

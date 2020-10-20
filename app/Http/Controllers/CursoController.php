@@ -27,7 +27,9 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $action = route('cursos.store');
+
+        return view('admin.cursos.form_curso', compact('action'));
     }
 
     /**
@@ -38,7 +40,11 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Curso::create($request->all());
+
+        $request->session()->flash('sucesso', 'Curso $request->nome incluído com sucesso!');
+
+        return redirect()->route('cursos.index');
     }
 
     /**
@@ -49,7 +55,7 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->route('cursos.index');
     }
 
     /**
@@ -60,7 +66,11 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+
+        $action = route('cursos.update', $curso->id);
+
+        return view('admin.cursos.form_curso', compact('curso', 'action'));
     }
 
     /**
@@ -72,7 +82,14 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::find($id);
+
+        $curso->update($request->all());
+
+        $request->session()->flash('sucesso', 'Curso $request->nome alterado com sucesso!');
+
+        return redirect()->route('cursos.index');
+
     }
 
     /**
@@ -81,8 +98,12 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Curso::destroy($id);
+
+        $request->session()->flash('sucesso', 'Curso excluído com sucesso!');
+
+        return redirect()->route('cursos.index');
     }
 }

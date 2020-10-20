@@ -3,25 +3,9 @@
 @section('content-main')
 
     <section class="section">
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
-        {{'Qualquer coisa aqui'}}
+
+        <p>{{'Página de contato'}}</p>
+
     </section>
 
 @endsection

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Aluno;
+
 class AlunoController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = Aluno::All();
+
+        return view('admin.alunos.alunos', compact('alunos'));
     }
 
     /**
@@ -23,7 +27,9 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+         $action = route('alunos.store');
+
+        return view('admin.alunos.form_aluno', compact('action'));
     }
 
     /**
@@ -34,7 +40,11 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Aluno::create($request->all());
+
+        $request->session()->flash('sucesso', 'Aluno $request->nome incluído com sucesso!');
+
+        return redirect()->route('alunos.index');
     }
 
     /**
@@ -45,7 +55,7 @@ class AlunoController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->route('alunos.index');
     }
 
     /**
@@ -56,7 +66,11 @@ class AlunoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aluno = Aluno::find($id);
+
+        $action = route('alunos.update', $aluno->id);
+
+        return view('admin.alunos.form_aluno', compact('aluno', 'action'));
     }
 
     /**
@@ -68,7 +82,13 @@ class AlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aluno = Aluno::find($id);
+
+        $aluno->update($request->all());
+
+        $request->session()->flash('sucesso', 'Aluno $request->nome alterado com sucesso!');
+
+        return redirect()->route('alunos.index');
     }
 
     /**
@@ -79,6 +99,10 @@ class AlunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Aluno::destroy($id);
+
+        $request->session()->flash('sucesso', 'Aluno excluído com sucesso!');
+
+        return redirect()->route('alunos.index');
     }
 }

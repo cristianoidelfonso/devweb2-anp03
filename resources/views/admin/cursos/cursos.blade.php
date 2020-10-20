@@ -10,10 +10,10 @@
                     <th class="centered">Código</th>
                     <th>Nome</th>
                     <th>C.H.</th>
-                    <th>Professor</th>
-                    <th>Preço</th>
-                    <th>Created_at</th>
-                    <th>Updated_at</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Dt.Cadastro</th>
+                    <th>Dt.Atualização</th>
                     <th class="center-align">Opções</th>
                 </tr>
             </thead>
@@ -21,19 +21,19 @@
                 @forelse ($cursos as $curso)
                     <tr>
                         <td>{{ $curso->id }}</td>
-                        <td>{{ $curso->nome }}</td>
+                        <td>{{ $curso->nome_curso }}</td>
                         <td>{{ $curso->carga_horaria }}</td>
-                        <td>{{ $curso->professor }}</td>
-                        <td>{{ $curso->preco }}</td>
-                        <td>{{ $curso->created_at }}</td>
-                        <td>{{ $curso->updated_at }}</td>
+                        <td>{{ $curso->descricao }}</td>
+                        <td>{{ $curso->valor }}</td>
+                        <td>{{ date('d/m/Y', strtotime($curso->created_at)) }}</td>
+                        <td>{{ date('d/m/Y', strtotime($curso->updated_at)) }}</td>
                         <td class="center-align">
 
-                            <button class="btn">
+                            <a class="btn" href="{{route('cursos.edit', $curso->id)}}">
                                 <span title="Editar"><i class="blue-text text-darken-4 small material-icons">edit</i></span>
-                            </button>
+                            </a>
 
-                            <form action="{{ route('deletar', $curso->id) }}" method="post" style="display: inline;">
+                            <form action="{{route('cursos.destroy', $curso->id)}}" method="post" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn">
@@ -53,7 +53,7 @@
         </div>
 
         <div class="fixed-action-btn">
-            <a href="{{url('/cadastrar-curso')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar Novo Curso">
+            <a href="{{route('cursos.create')}}" class="btn-floating btn-large waves-effect waves-light" title="Cadastrar Novo Curso">
                 <i class="large material-icons">add</i>
             </a>
         </div>

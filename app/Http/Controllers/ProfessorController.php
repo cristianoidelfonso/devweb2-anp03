@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Professor;
+
 class ProfessorController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        return view('admin.professores.professores');
+
+        $professores = Professor::All();
+
+        return view('admin.professores.professores', compact('professores'));
     }
 
     /**
@@ -23,7 +28,9 @@ class ProfessorController extends Controller
      */
     public function create()
     {
-        //
+        $action = route('professores.store');
+
+        return view('admin.professores.form_professor', compact('action'));
     }
 
     /**
@@ -34,7 +41,11 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Professor::create($request->all());
+
+        $request->session()->flash('sucesso', 'Professor $request->nome incluído com sucesso!');
+
+        return redirect()->route('professores.index');
     }
 
     /**
@@ -45,7 +56,7 @@ class ProfessorController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->route('professores.index');
     }
 
     /**
@@ -56,7 +67,11 @@ class ProfessorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $professor = Professor::find($id);
+
+        $action = route('professores.update', $professor->id);
+
+        return view('admin.professores.form_professor', compact('professor', 'action'));
     }
 
     /**
@@ -68,7 +83,13 @@ class ProfessorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $professor = Professor::find($id);
+
+        $professor->update($request->all());
+
+        $request->session()->flash('sucesso', 'Professor $request->nome alterado com sucesso!');
+
+        return redirect()->route('professores.index');
     }
 
     /**
@@ -79,6 +100,10 @@ class ProfessorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Professor::destroy($id);
+
+        $request->session()->flash('sucesso', 'Professor excluído com sucesso!');
+
+        return redirect()->route('professores.index');
     }
 }
