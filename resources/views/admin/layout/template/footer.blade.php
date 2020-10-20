@@ -29,7 +29,15 @@
         @if (session('sucesso'))
             // M.toast( { html: "{{ session('sucesso') }}" } );
             var toastHTML = `<span>{{session('sucesso')}}</span>`;
-            M.toast({html: toastHTML, classes: 'rounded yellow accent-3  teal-text text-darken-4'});
+            M.toast(
+                    {
+                        html: toastHTML,
+                        displayLength: 2500,
+                        inDuration: 5,
+                        outDuration: 25,
+                        classes: 'rounded green accent-4 grey-text text-lighten-5'
+                    }
+                );
         @endif
     </script>
 

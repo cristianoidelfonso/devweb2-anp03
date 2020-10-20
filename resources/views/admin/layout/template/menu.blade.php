@@ -7,6 +7,7 @@
                 <li><a href="{{route('alunos.index')}}">{{'Alunos'}}</a></li>
                 <li><a href="{{route('cursos.index')}}">{{'Cursos'}}</a></li>
                 <li><a href="{{route('professores.index')}}">{{'Professores'}}</a></li>
+                <li><a href="{{route('matriculas.index')}}">{{'Matrículas'}}</a></li>
                 <li><a href="{{route('contato')}}">{{'Contato'}}</a></li>
                 <li><a href="{{route('sobre')}}">{{'Sobre'}}</a></li>
             </ul>
@@ -16,6 +17,7 @@
         <li><a href="{{route('alunos.index')}}">{{'Alunos'}}</a></li>
         <li><a href="{{route('cursos.index')}}">{{'Cursos'}}</a></li>
         <li><a href="{{route('professores.index')}}">{{'Professores'}}</a></li>
+        <li><a href="{{route('matriculas.index')}}">{{'Matriculas'}}</a></li>
         <li><a href="{{route('contato')}}">{{'Contato'}}</a></li>
         <li><a href="{{route('sobre')}}">{{'Sobre'}}</a></li>
     </ul>
