@@ -34,10 +34,23 @@
             <div class="input-field">
                 <input class="form-control" type="number" id="valor" name="valor" value="{{old('valor', $curso->valor ?? '')}}">
                 <label for="valor">Valor</label>
-                 @error('valor')
+                @error('valor')
                     <span class="red-text"><small>{{$message}}</small></span>
                 @enderror
             </div>
+
+            <div class="input-field">
+                <select name="professor_id">
+                    @forelse ($professors as $professor)
+                        <option value="{{$professor->id}}">{{$professor->nome_professor}} - {{$professor->formacao}}</option>
+                    @empty
+                        <option>{{'Sem professores cadastrados'}}</option>
+                    @endforelse
+                </select>
+                <label>Professor</label>
+            </div>
+
+
             <div class="right-align">
                 <button class="btn waves-effect waves-light" type="submit">Salvar</button>
                 {{-- <a href="" class="btn-flat waves-effect">
@@ -53,3 +66,4 @@
         </form>
 
 @endsection
+

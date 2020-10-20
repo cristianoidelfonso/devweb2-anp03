@@ -12,6 +12,7 @@
                     <th>C.H.</th>
                     <th>Descrição</th>
                     <th>Valor</th>
+                    <th>Id professor</th>
                     <th>Dt.Cadastro</th>
                     <th>Dt.Atualização</th>
                     <th class="center-align">Opções</th>
@@ -23,8 +24,11 @@
                         <td>{{ $curso->id }}</td>
                         <td>{{ $curso->nome_curso }}</td>
                         <td>{{ $curso->carga_horaria }}</td>
-                        <td>{{ $curso->descricao }}</td>
+
+                        <td>{{ Helper::text_limiter_caracter($curso->descricao, 25)}}</td>
+
                         <td>{{ $curso->valor }}</td>
+                        <td>{{ $curso->professor_id }}</td>
                         <td>{{ date('d/m/Y', strtotime($curso->created_at)) }}</td>
                         <td>{{ date('d/m/Y', strtotime($curso->updated_at)) }}</td>
                         <td class="center-align">

@@ -11,9 +11,10 @@ class Aluno extends Model
 
     protected $fillable = ['nome_aluno','data_nascimento','sexo','email','escolaridade'];
 
-    // Definindo relacionamento 1 para 1
+
     public function matricula(){
 
-        return $this->hasOne('App\Models\Matricula', 'aluno_id');
+        return $this->belongsTo('App\Models\Matricula');
+
     }
 }

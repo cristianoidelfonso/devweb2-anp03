@@ -14,15 +14,14 @@ class CreateCursosTable extends Migration
     public function up()
     {
         Schema::create('cursos', function (Blueprint $table) {
+            $table->id();
 
-            $table->id(); //criar a chave primaria chamada 'id'
-
-            // Criando os campos da tabela no banco de dados
-            // $table->tipo_do_campo('nome_do_campo', 'tamanho_do campo')
-            $table->string('nome_curso', 128)->unique();
+            $table->string('nome_curso', 128);
             $table->integer('carga_horaria');
-            $table->text('descricao');
+            $table->mediumText('descricao');
             $table->decimal('valor', 8, 2);
+
+            $table->foreignId('professor_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

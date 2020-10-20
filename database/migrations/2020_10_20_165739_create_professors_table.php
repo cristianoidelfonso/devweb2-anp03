@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfessoresTable extends Migration
+class CreateProfessorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateProfessoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('professores', function (Blueprint $table) {
+        Schema::create('professors', function (Blueprint $table) {
             $table->id();
 
-            // Criando os campos da tabela no banco de dados
-            // $table->tipo_do_campo('nome_do_campo', 'tamanho_do campo')
-            $table->string('nome_professor', 128)->unique();
+            $table->string('nome_professor', 128);
             $table->string('formacao', 250);
             $table->string('email', 128)->unique();
 
@@ -33,6 +31,6 @@ class CreateProfessoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professores');
+        Schema::dropIfExists('professors');
     }
 }

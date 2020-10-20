@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CursoRequest;
 use App\Models\Curso;
+use App\Models\Professor;
 
 class CursoController extends Controller
 {
@@ -17,6 +18,8 @@ class CursoController extends Controller
     public function index()
     {
         $cursos = Curso::All();
+
+
 
         return view('admin.cursos.cursos', compact('cursos'));
     }
@@ -30,7 +33,9 @@ class CursoController extends Controller
     {
         $action = route('cursos.store');
 
-        return view('admin.cursos.form_curso', compact('action'));
+        $professors = Professor::All();
+
+        return view('admin.cursos.form_curso', compact('action', 'professors'));
     }
 
     /**
@@ -69,9 +74,11 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
 
+        $professors = Professor::All();
+
         $action = route('cursos.update', $curso->id);
 
-        return view('admin.cursos.form_curso', compact('curso', 'action'));
+        return view('admin.cursos.form_curso', compact('curso', 'action', 'professors'));
     }
 
     /**

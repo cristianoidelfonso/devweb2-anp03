@@ -24,7 +24,7 @@ class CursoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome_curso' => 'required|min:5|max:128|unique:cursos',
+            'nome_curso' => 'bail|required|min:5|max:128',
             'carga_horaria' => 'required|numeric',
             'descricao' => 'required|min:2',
             'valor' => 'required|numeric',

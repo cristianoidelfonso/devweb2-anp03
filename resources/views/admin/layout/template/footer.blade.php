@@ -16,7 +16,12 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('.sidenav').sidenav();
+            $('select').formSelect();
         });
+
+        // $(document).ready(function(){
+        //     $('select').formSelect();
+        // });
     </script>
 
 
