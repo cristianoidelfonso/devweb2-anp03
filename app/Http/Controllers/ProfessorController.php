@@ -16,10 +16,10 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-
+        $titulo = 'Professores';
         $professores = Professor::All();
 
-        return view('admin.professores.professores', compact('professores'));
+        return view('admin.professores.professores', compact('professores','titulo'));
     }
 
     /**
@@ -29,9 +29,11 @@ class ProfessorController extends Controller
      */
     public function create()
     {
+        $titulo = 'Professores';
+        $subtitulo = 'Cadastrando um novo professor';
         $action = route('professores.store');
 
-        return view('admin.professores.form_professor', compact('action'));
+        return view('admin.professores.form_professor', compact('action', 'titulo', 'subtitulo'));
     }
 
     /**
@@ -68,11 +70,13 @@ class ProfessorController extends Controller
      */
     public function edit($id)
     {
+        $titulo = 'Cursos';
+        $subtitulo = 'Editando os dados do professor';
         $professor = Professor::find($id);
 
         $action = route('professores.update', $professor->id);
 
-        return view('admin.professores.form_professor', compact('professor', 'action'));
+        return view('admin.professores.form_professor', compact('professor', 'action','titulo','subtitulo'));
     }
 
     /**

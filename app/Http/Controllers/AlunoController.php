@@ -16,9 +16,10 @@ class AlunoController extends Controller
      */
     public function index()
     {
+        $titulo = 'Alunos';
         $alunos = Aluno::All();
 
-        return view('admin.alunos.alunos', compact('alunos'));
+        return view('admin.alunos.alunos', compact('alunos','titulo'));
     }
 
     /**
@@ -28,9 +29,11 @@ class AlunoController extends Controller
      */
     public function create()
     {
-         $action = route('alunos.store');
+        $titulo = 'Alunos';
+        $subtitulo = 'Registrando um novo aluno';
+        $action = route('alunos.store');
 
-        return view('admin.alunos.form_aluno', compact('action'));
+        return view('admin.alunos.form_aluno', compact('action','titulo','subtitulo'));
     }
 
     /**
@@ -67,11 +70,13 @@ class AlunoController extends Controller
      */
     public function edit($id)
     {
+        $titulo = 'Alunos';
+        $subtitulo = 'Editando os dados do aluno';
         $aluno = Aluno::find($id);
 
         $action = route('alunos.update', $aluno->id);
 
-        return view('admin.alunos.form_aluno', compact('aluno', 'action'));
+        return view('admin.alunos.form_aluno', compact('aluno', 'action', 'titulo','subtitulo'));
     }
 
     /**

@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Matricula;
+use App\Models\Professor;
+use App\Models\Curso;
+use App\Models\Aluno;
+
 class MatriculaController extends Controller
 {
     /**
@@ -13,7 +18,11 @@ class MatriculaController extends Controller
      */
     public function index()
     {
-        //
+        $titulo = 'Matrículas';
+        $matriculas = Matricula::All();
+        $alunos = Aluno::All();
+
+        return view('admin.matriculas.matriculas', compact('matriculas', 'alunos', 'titulo'));
     }
 
     /**
@@ -23,7 +32,15 @@ class MatriculaController extends Controller
      */
     public function create()
     {
-        //
+        $titulo = 'Matrículas';
+        $subtitulo = 'Registrando uma nova matrícula';
+        $action = route('matriculas.store');
+
+        $professors = Professor::All();
+        $cursos = Curso::All();
+        $alunos= Aluno::All();
+
+        return view('admin.matriculas.form_matricula', compact('titulo','subtitulo','action', 'professors', 'cursos', 'alunos'));
     }
 
     /**
@@ -34,7 +51,11 @@ class MatriculaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Matricula::create($request->all());
+
+        $request->session()->flash('sucesso', "Matrícula registrada com sucesso!");
+
+        return redirect()->route('matriculas.index');
     }
 
     /**
@@ -45,7 +66,7 @@ class MatriculaController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect()->route('matriculas.index');
     }
 
     /**
@@ -56,7 +77,20 @@ class MatriculaController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $titulo = 'Matrículas';
+        // $subtitulo = 'Editando matrícula';
+
+        // $matricula = Matricula::find($id);
+
+        // $professors = Professor::All();
+        // $cursos = Curso::All();
+        // $alunos = Aluno::All();
+
+        // $action = route('matriculas.update', $matricula->id);
+
+        // return view('admin.matriculas.form_matricula', compact('titulo','subtitulo','matricula', 'action', 'professors', 'cursos', 'alunos'));
+
+        return redirect()->route('matriculas.index');
     }
 
     /**
@@ -68,7 +102,13 @@ class MatriculaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $matricula = Matricula::find($id);
+
+        $matricula->update($request->all());
+
+        $request->session()->flash('sucesso', "Matrícula alterada com sucesso!");
+
+        return redirect()->route('matriculas.index');
     }
 
     /**
@@ -77,8 +117,12 @@ class MatriculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Matricula::destroy($id);
+
+        $request->session()->flash('sucesso', "Matrícula excluída com sucesso!");
+
+        return redirect()->route('matriculas.index');
     }
 }

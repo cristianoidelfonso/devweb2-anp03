@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function(){
-    return view('admin.layout.template.index');
+    $titulo = 'Página inicial';
+    $subtitulo = 'Subtitulo da página inicial';
+    return view('admin.layout.template.pagina_inicial', compact('titulo', 'subtitulo'));
 });
 
 Route::get('/contato', function(){

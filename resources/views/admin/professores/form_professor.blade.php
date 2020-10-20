@@ -2,7 +2,9 @@
 
 @section('content-main')
 
-     <form action="{{$action}}" method="POST" class="">
+    <p class="center-align"><strong>{{$titulo}}</strong> - {{$subtitulo}}</p>
+
+    <form action="{{$action}}" method="POST" class="">
 
             {{-- cross-site request forgery csrf --}}
             @csrf

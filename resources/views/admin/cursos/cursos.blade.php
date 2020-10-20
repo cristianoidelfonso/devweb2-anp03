@@ -2,6 +2,8 @@
 
 @section('content-main')
 
+    <p class="center-align"><strong>{{$titulo}}</strong></p>
+
     <section class="section">
         <div class="tableFixHead">
         <table class="highlight responsive-table centered">
@@ -25,7 +27,7 @@
                         <td>{{ $curso->nome_curso }}</td>
                         <td>{{ $curso->carga_horaria }}</td>
 
-                        <td>{{ Helper::text_limiter_caracter($curso->descricao, 25)}}</td>
+                        <td title="{{$curso->descricao}}">{{ Helper::text_limiter_caracter($curso->descricao, 25)}}</td>
 
                         <td>{{ $curso->valor }}</td>
                         <td>{{ $curso->professor_id }}</td>

@@ -2,6 +2,8 @@
 
 @section('content-main')
 
+    <p class="center-align"><strong>{{$titulo}}</strong> - {{$subtitulo}}</p>
+
      <form action="{{$action}}" method="POST" class="">
 
             {{-- cross-site request forgery csrf --}}

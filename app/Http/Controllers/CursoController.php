@@ -17,11 +17,10 @@ class CursoController extends Controller
      */
     public function index()
     {
+        $titulo = 'Cursos';
         $cursos = Curso::All();
 
-
-
-        return view('admin.cursos.cursos', compact('cursos'));
+        return view('admin.cursos.cursos', compact('cursos','titulo'));
     }
 
     /**
@@ -31,11 +30,13 @@ class CursoController extends Controller
      */
     public function create()
     {
+        $titulo = 'Cursos';
+        $subtitulo = 'Cadastrando um novo curso';
         $action = route('cursos.store');
 
         $professors = Professor::All();
 
-        return view('admin.cursos.form_curso', compact('action', 'professors'));
+        return view('admin.cursos.form_curso', compact('action', 'professors', 'titulo', 'subtitulo'));
     }
 
     /**
@@ -72,13 +73,15 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
+        $titulo = 'Cursos';
+        $subtitulo = 'Editando os dados do curso';
         $curso = Curso::find($id);
 
         $professors = Professor::All();
 
         $action = route('cursos.update', $curso->id);
 
-        return view('admin.cursos.form_curso', compact('curso', 'action', 'professors'));
+        return view('admin.cursos.form_curso', compact('curso', 'action', 'professors', 'titulo', 'subtitulo'));
     }
 
     /**

@@ -2,6 +2,8 @@
 
 @section('content-main')
 
+    <p class="center-align"><strong>{{$titulo}}</strong></p>
+
     <section class="section">
         <div class="tableFixHead">
         <table class="highlight responsive-table centered">
@@ -21,7 +23,7 @@
                     <tr>
                         <td>{{ $professor->id }}</td>
                         <td>{{ $professor->nome_professor }}</td>
-                        <td>{{ $professor->formacao }}</td>
+                        <td title="{{$professor->formacao}}">{{ Helper::text_limiter_caracter($professor->formacao, 25) }}</td>
                         <td>{{ $professor->email }}</td>
                         <td>{{ date('d/m/Y', strtotime($professor->created_at)) }}</td>
                         <td>{{ date('d/m/Y', strtotime($professor->updated_at)) }}</td>
@@ -43,7 +45,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td>Nenhum curso encontrado.</td>
+                        <td>Nenhum professor registrado.</td>
                     </tr>
                 @endforelse
             </tbody>

@@ -2,6 +2,8 @@
 
 @section('content-main')
 
+    <p class="center-align"><strong>{{$titulo}}</strong> - {{$subtitulo}}</p>
+
      <form action="{{$action}}" method="POST" class="">
 
             {{-- cross-site request forgery csrf --}}
@@ -41,6 +43,7 @@
 
             <div class="input-field">
                 <select name="professor_id">
+                    <option>{{'Selecione um professor'}}</option>
                     @forelse ($professors as $professor)
                         <option value="{{$professor->id}}">{{$professor->nome_professor}} - {{$professor->formacao}}</option>
                     @empty

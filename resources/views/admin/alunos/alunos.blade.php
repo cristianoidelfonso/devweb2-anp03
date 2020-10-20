@@ -2,6 +2,8 @@
 
 @section('content-main')
 
+    <p class="center-align"><strong>{{$titulo}}</strong></p>
+
     <section class="section">
         <div class="tableFixHead">
         <table class="highlight responsive-table centered">
@@ -49,7 +51,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td>Nenhum curso encontrado.</td>
+                        <td>Não foram encontrados registros de alunos(as).</td>
                     </tr>
                 @endforelse
             </tbody>
